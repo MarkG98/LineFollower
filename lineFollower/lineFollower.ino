@@ -47,17 +47,19 @@ void loop()
   leftspeed = (val_l/val_r)*c; 
   rightspeed = (val_r/val_l)*c;
 
-  if (leftspeed < rightspeed)
+  if (abs(leftspeed - rightspeed) < 10)
+  {
+    // keep speeds the same. Below code not necessary, but good to demonstrate flow of the program
+    leftspeed = leftspeed;
+    rightspeed = rightspeed;
+  }
+  else if (leftspeed < rightspeed)
   {
     leftspeed = leftspeed / 2.0;
   }
   else if (leftspeed > rightspeed)
   {
     rightspeed = rightspeed / 2.0;
-  }
-  else if (abs(leftspeed - rightspeed) < 10)
-  {
-    // keep speeds the same
   }
 
   if (millis() - start <= 15000.0)
