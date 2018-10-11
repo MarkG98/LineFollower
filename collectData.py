@@ -2,7 +2,7 @@ import serial
 import csv
 import time
 
-arduinoComPort = '/dev/ttyACM1'
+arduinoComPort = '/dev/ttyACM0'
 
 baudRate = 9600
 
@@ -37,7 +37,7 @@ while True:
 
     print(lv_list)
 
-with open('data.csv', 'w', newline='') as csvfile:
+with open('data1.csv', 'w', newline='') as csvfile:
   fieldnames = ['time','left_val', 'right_val', 'leftspeed', 'rightspeed']
   writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
